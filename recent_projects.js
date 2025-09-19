@@ -78,18 +78,22 @@ function showMostRecentProjects() {
                             class="mdi-navigation-close right"></i></span>
                         <ul>
                         <li><b>Tools:</b> " ${project.tools}"</li>
-                        <li>"${project.accomplishments}"</li>
+                        ${project.accomplishments.map(point => `<li>${point}</li>`).join("")}
 
                         </ul>
                         <div class="card-action">
-                        <a aria-label="Visit website" href="${project.liveDemo}" target="_blank" data-position="top"
-                            data-tooltip="View Online"
-                            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                            class="fa fa-external-link"></i></a>
+                        ${project.liveDemo ? `
+                            <a aria-label="Visit website" href="${project.liveDemo}" target="_blank" data-position="top"
+                                data-tooltip="View Online"
+                                class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                                class="fa fa-external-link"></i></a>
+                        `: ""}
+                        ${project.github ? `
                         <a aria-label="Visit the GitHub repo for project" href="${project.github}"
                             target="_blank" data-position="top" data-tooltip="View Source"
                             class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
                             class="fa fa-github"></i></a>
+                        ` : ""}
                         </div>
                     </div>
                 </div>
