@@ -4,10 +4,12 @@ const allProjects = document.getElementsByClassName("col s12 m6 l4");
 let loadSize = 3; 
 
 function showMostRecentProjects() {
-    container.innerHTML = ""; // clear container first to avoid duplicates
+    console.log("Projects found:", allProjects.length);
+    container.innerHTML = ""; 
 
     for (let i = 0; i < loadSize && i < allProjects.length; i++) {
         const card = allProjects[i].cloneNode(true);
+        card.style.display = 'block';
         container.appendChild(card);
     }
 
@@ -16,12 +18,10 @@ function showMostRecentProjects() {
     }
 }
 
-// Handle load more
 loadBtn.addEventListener('click', () => {
-    loadSize += 3; // load 3 more
+    loadSize += 3; 
     showMostRecentProjects();
 });
 
-// Initial render
 showMostRecentProjects();
 
