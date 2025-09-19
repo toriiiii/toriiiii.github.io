@@ -1,6 +1,5 @@
 const container = document.getElementById('recent-projects-container');
 const loadBtn = document.getElementById('load-more-btn');
-const allProjects = document.getElementsByClassName("col s12 m6 l4");
 let loadSize = 3; 
 
 const projects = [
@@ -56,44 +55,47 @@ const projects = [
 ];
 
 function showMostRecentProjects() {
-    projects.forEach(project => {
-        container.innerHTML += `
-            <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="${project.title}" src="${project.image}"
-                style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">"${project.title}"<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  "${project.description}"
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> " ${project.tools}"</li>
-                  <li>"${project.accomplishments}"</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit website" href="${project.liveDemo}" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for project" href="${project.github}"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
+    for (let i = 0; i < projects.length; i++) {
+        container.innerHTML = "";
+        if (i < loadSize) {
+            container.innerHTML += `
+                <div class="col s12 m6 l4">
+                <div class="card medium">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img alt="${project.title}" src="${project.image}"
+                    style="height: 100%; width: 100%" class="activator" />
                 </div>
-              </div>
-            </div>
-            </div>
-        `;
-    })
+                <div class="card-content">
+                    <span class="card-title activator teal-text hoverline">"${project.title}"<i
+                        class="mdi-navigation-more-vert right"></i></span>
+                    <p>
+                    "${project.description}"
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title teal-text"><small>Accomplishments</small><i
+                        class="mdi-navigation-close right"></i></span>
+                    <ul>
+                    <li><b>Tools:</b> " ${project.tools}"</li>
+                    <li>"${project.accomplishments}"</li>
+
+                    </ul>
+                    <div class="card-action">
+                    <a aria-label="Visit website" href="${project.liveDemo}" target="_blank" data-position="top"
+                        data-tooltip="View Online"
+                        class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                        class="fa fa-external-link"></i></a>
+                    <a aria-label="Visit the GitHub repo for project" href="${project.github}"
+                        target="_blank" data-position="top" data-tooltip="View Source"
+                        class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                        class="fa fa-github"></i></a>
+                    </div>
+                </div>
+                </div>
+                </div>
+            `;
+        }
+    }
 }
 
 loadBtn.addEventListener('click', () => {
