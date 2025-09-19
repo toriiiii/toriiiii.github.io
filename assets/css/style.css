@@ -121,7 +121,7 @@
 }
 
 .pink-background {
-  background-color: #D0A0A3;
+  background-color: #D0A0A3 !important;
 }
 
 .loadmore {
