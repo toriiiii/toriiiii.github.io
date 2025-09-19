@@ -1,18 +1,27 @@
 const container = document.getElementById('recent-projects-container');
 const loadBtn = document.getElementById('load-more-btn');
-let loadSize = 3;
+const allProjects = document.getElementsByClassName("col s12 m6 l4");
+let loadSize = 3; 
 
 function showMostRecentProjects() {
-    projects = document.getElementsByClassName("col s12 m6 l4");
-    for (let i = 0; i < projects.length; i++) {
-        if (i >= loadSize) {
-            break;
-        }
+    container.innerHTML = ""; // clear container first to avoid duplicates
 
-        card = projects[i].cloneNode(true);
+    for (let i = 0; i < loadSize && i < allProjects.length; i++) {
+        const card = allProjects[i].cloneNode(true);
         container.appendChild(card);
+    }
+
+    if (loadSize >= allProjects.length) {
+        loadBtn.style.display = 'none'; 
     }
 }
 
+// Handle load more
+loadBtn.addEventListener('click', () => {
+    loadSize += 3; // load 3 more
+    showMostRecentProjects();
+});
+
+// Initial render
 showMostRecentProjects();
 
