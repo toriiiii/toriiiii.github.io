@@ -120,10 +120,6 @@
   background-color: white;
 }
 
-.pink {
-  background-color: #D0A0A3;
-}
-
 .loadmore {
   position: relative;
   padding: 11px 35px;
@@ -139,6 +135,11 @@
 }
 
 .loadmore:hover{
+  color: white;
+  background-color: #D0A0A3;
+}
+
+.loadmore::after{
   color: white;
   background-color: #D0A0A3;
 }
