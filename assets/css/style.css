@@ -123,21 +123,20 @@
 .loadmore {
   position: relative;
   padding: 11px 35px;
-  background: none;
-  color: #fff;
+  background: #fff;
+  color: #D0A0A3;
   border: 2px solid #fff;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
-  margin-top: 1.5em;
   border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
 .loadmore:hover{
-  color: #D0A0A3;
-  background-color: white;
+  color: white;
+  background-color: #D0A0A3;
 }
 /* main body */
 
@@ -622,7 +621,7 @@ small {
     position: absolute;
   }
   nav a.button-collapse, nav a.button-collapse i {
-    color: #009688;
+    color: #D0A0A3;
     height: 56px;
     line-height: 56px;
   }
