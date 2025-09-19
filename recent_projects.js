@@ -56,7 +56,7 @@ const projects = [
 
 function showMostRecentProjects() {
     for (let i = 0; i < projects.length; i++) {
-        const project = projects[i]
+        const project = projects[i];
         container.innerHTML = "";
         if (i < loadSize) {
             container.innerHTML += `
