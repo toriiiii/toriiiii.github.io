@@ -100,7 +100,7 @@ function showMostRecentProjects() {
 }
 
 loadBtn.addEventListener('click', () => {
-    loadSize += loadSize; 
+    loadSize += 1; 
     showMostRecentProjects();
 });
 
